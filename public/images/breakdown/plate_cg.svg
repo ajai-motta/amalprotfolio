@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <radialGradient id="cg-space" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#0f172a" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  
+  <rect width="1920" height="1080" fill="url(#cg-space)" />
+  
+  <!-- 3D Camera Tracking Point Cloud (Nuke/Mocha/Maya 3D space) -->
+  <g fill="#38bdf8" opacity="0.6">
+    <circle cx="200" cy="300" r="2" /><circle cx="280" cy="320" r="2" /><circle cx="340" cy="280" r="2" />
+    <circle cx="450" cy="400" r="2" /><circle cx="520" cy="360" r="2" /><circle cx="610" cy="420" r="2" />
+    <circle cx="1300" cy="300" r="2" /><circle cx="1380" cy="340" r="2" /><circle cx="1450" cy="290" r="2" />
+    <circle cx="1600" cy="450" r="2" /><circle cx="1680" cy="390" r="2" /><circle cx="1750" cy="430" r="2" />
+    <!-- Ground plane grid -->
+    <path d="M 0 800 L 960 550 L 1920 800" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4" fill="none" />
+    <path d="M 200 880 L 960 550 L 1720 880" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4" fill="none" />
+    <path d="M 400 960 L 960 550 L 1520 960" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4" fill="none" />
+  </g>
+
+  <!-- 3D Wireframe Spaceship / Sci-Fi Citadel in Background -->
+  <polygon points="960,180 1450,450 1350,650 570,650 470,450" fill="#1e293b" stroke="#00f2fe" stroke-width="1.5" opacity="0.8" />
+  <line x1="960" y1="180" x2="960" y2="650" stroke="#00f2fe" stroke-width="1" opacity="0.5" />
+  <line x1="470" y1="450" x2="1450" y2="450" stroke="#00f2fe" stroke-width="1" opacity="0.5" />
+
+  <!-- Depth / Normal Pass Rings -->
+  <circle cx="960" cy="450" r="280" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="8 8" opacity="0.4" />
+  <circle cx="960" cy="450" r="180" fill="none" stroke="#3b82f6" stroke-width="1" stroke-dasharray="6 6" opacity="0.5" />
+
+  <!-- Integrated Actor Silhouette with Contact Lighting -->
+  <g fill="#09090b" stroke="#38bdf8" stroke-width="1.5">
+    <ellipse cx="960" cy="380" rx="60" ry="75" />
+    <path d="M 850 480 L 1070 480 L 1020 860 L 900 860 Z" />
+    <path d="M 850 480 L 740 680 L 780 700 L 890 530 Z" />
+    <path d="M 1070 480 L 1180 620 L 1140 640 L 1030 530 Z" />
+    <path d="M 900 850 L 860 1080 L 920 1080 L 950 860 Z" />
+    <path d="M 970 850 L 1000 1080 L 1060 1080 L 1020 860 Z" />
+  </g>
+
+  <!-- Burn-in Timecode & Slate Overlay -->
+  <rect x="60" y="60" width="460" height="90" fill="#000000" opacity="0.8" rx="6" />
+  <text x="80" y="105" font-family="'Courier New', monospace" font-size="22" font-weight="700" fill="#38bdf8">CGI_TRACK_COMP_v05</text>
+  <text x="80" y="135" font-family="'Courier New', monospace" font-size="16" fill="#f8fafc">3D CAMERA TRACK • CGI ASSETS • DEPTH</text>
+
+  <rect x="1400" y="60" width="460" height="90" fill="#000000" opacity="0.8" rx="6" />
+  <text x="1420" y="105" font-family="'Courier New', monospace" font-size="22" font-weight="700" fill="#a855f7">CGI &amp; TRACKING</text>
+  <text x="1420" y="135" font-family="'Courier New', monospace" font-size="16" fill="#cbd5e1">ENVIRONMENT PROJECTION &amp; MATCHMOVE</text>
+</svg>

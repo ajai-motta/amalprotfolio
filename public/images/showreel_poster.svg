@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <radialGradient id="reel-center" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#09090b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#020204" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="reel-streak" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#reel-center)" />
+  
+  <!-- Film Sprocket Holes (Cinematic Edge Detail) -->
+  <g fill="#18181b">
+    <rect x="0" y="0" width="60" height="1080" />
+    <rect x="1860" y="0" width="60" height="1080" />
+    <!-- Left Sprockets -->
+    <rect x="15" y="40" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="140" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="240" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="340" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="440" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="540" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="640" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="740" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="840" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="15" y="940" width="30" height="45" rx="6" fill="#09090b" />
+    <!-- Right Sprockets -->
+    <rect x="1875" y="40" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="140" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="240" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="340" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="440" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="540" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="640" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="740" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="840" width="30" height="45" rx="6" fill="#09090b" />
+    <rect x="1875" y="940" width="30" height="45" rx="6" fill="#09090b" />
+  </g>
+
+  <!-- Anamorphic Light Beam in Center -->
+  <line x1="100" y1="540" x2="1820" y2="540" stroke="#38bdf8" stroke-width="2" opacity="0.3" />
+  
+  <!-- Optical Ring & Crosshair Focal Center -->
+  <circle cx="960" cy="540" r="220" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="10 20" opacity="0.4" />
+  <circle cx="960" cy="540" r="140" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.5" />
+  <circle cx="960" cy="540" r="60" fill="#38bdf8" opacity="0.1" />
+
+  <!-- Play icon motif subtle outline -->
+  <polygon points="940,490 1010,540 940,590" fill="#ffffff" opacity="0.8" />
+
+  <!-- Subtitle & Showreel tags -->
+  <text x="960" y="420" font-family="'Cinzel', 'Helvetica Neue', sans-serif" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="16" text-anchor="middle">SHOWREEL 2024–2025</text>
+  <text x="960" y="650" font-family="'Courier New', monospace" font-size="16" font-weight="600" fill="#38bdf8" letter-spacing="8" text-anchor="middle">COMPOSITING • PAINT &amp; PREP • CGI BREAKDOWN</text>
+  <text x="960" y="690" font-family="'Courier New', monospace" font-size="14" fill="#94a3b8" letter-spacing="4" text-anchor="middle">AMAL B MATHEW // 4K DCI SCOPE MASTER</text>
+
+  <!-- Technical Viewfinder Markings -->
+  <rect x="100" y="80" width="1720" height="920" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" />
+  <text x="140" y="130" font-family="'Courier New', monospace" font-size="15" fill="#64748b">REEL: 01 // TC 00:00:00:00 - 00:02:45:12</text>
+  <text x="1780" y="130" font-family="'Courier New', monospace" font-size="15" fill="#64748b" text-anchor="end">AUDIO: 5.1 SURROUND // 24 FPS</text>
+</svg>

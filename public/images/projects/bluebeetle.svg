@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bb-glow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#2563eb" stop-opacity="0.4"/>
+      <stop offset="80%" stop-color="#09090b" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#050507" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#09090b" />
+  <rect width="1200" height="800" fill="url(#bb-glow)" opacity="0.8" />
+  
+  <!-- Alien Scarab Tech Biomechanical lines -->
+  <path d="M 600 240 L 700 380 L 600 520 L 500 380 Z" fill="none" stroke="#22d3ee" stroke-width="2" />
+  <path d="M 600 200 L 760 380 L 600 560 L 440 380 Z" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="10 10" opacity="0.6" />
+  <line x1="600" y1="180" x2="600" y2="580" stroke="#22d3ee" stroke-width="1.5" opacity="0.7" />
+
+  <!-- Tracking HUD -->
+  <g stroke="#06b6d4" stroke-width="1.5" opacity="0.6">
+    <path d="M 280 260 L 320 260 M 300 240 L 300 280" />
+    <path d="M 880 260 L 920 260 M 900 240 L 900 280" />
+  </g>
+
+  <!-- Title & Metadata -->
+  <text x="600" y="380" font-family="'Cinzel', 'Helvetica Neue', sans-serif" font-size="56" font-weight="900" fill="#cffafe" letter-spacing="14" text-anchor="middle">BLUE BEETLE</text>
+  <text x="600" y="440" font-family="'Courier New', monospace" font-size="16" font-weight="600" fill="#06b6d4" letter-spacing="6" text-anchor="middle">[ 2023 • DC STUDIOS / WARNER BROS. ]</text>
+  <text x="600" y="480" font-family="'Courier New', monospace" font-size="13" font-weight="400" fill="#94a3b8" letter-spacing="4" text-anchor="middle">SCARAB CGI INTERACTION • WIRE REMOVAL • ROTOPREP</text>
+
+  <!-- Viewfinder Frame -->
+  <rect x="50" y="50" width="1100" height="700" fill="none" stroke="#06b6d4" stroke-opacity="0.15" stroke-width="1" />
+  <text x="70" y="85" font-family="'Courier New', monospace" font-size="12" fill="#64748b" letter-spacing="2">SUIT VFX &amp; HARD-SURFACE CG INTEGRATION</text>
+  <text x="1130" y="85" font-family="'Courier New', monospace" font-size="12" fill="#64748b" letter-spacing="2" text-anchor="end">ANAMORPHIC SCOPE</text>
+</svg>

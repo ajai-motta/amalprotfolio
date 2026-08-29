@@ -1,0 +1,49 @@
+import React from "react";
+import type { Metadata } from "next";
+import About from "../components/About";
+import Skills from "../components/Skills";
+import Experience from "../components/Experience";
+import Education from "../components/Education";
+import Contact from "../components/Contact";
+import { User, Sparkles } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About | Amal B Mathew - VFX Artist",
+  description:
+    "Learn more about Amal B Mathew, professional background, technical software toolkit, career timeline, and VFX philosophy.",
+};
+
+export default function AboutPage() {
+  return (
+    <div className="pt-28 pb-16 bg-[#070709] min-h-screen">
+      {/* Header Banner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center sm:text-left">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono tracking-[0.25em] text-amber-400 uppercase mb-4">
+          <User className="w-3.5 h-3.5" />
+          <span>BIOGRAPHY &amp; BACKGROUND</span>
+        </div>
+        <h1 className="text-4xl sm:text-6xl font-serif font-black tracking-[0.12em] text-white uppercase mb-4">
+          ABOUT AMAL B MATHEW
+        </h1>
+        <p className="text-zinc-400 text-sm sm:text-base font-light max-w-3xl leading-relaxed">
+          Compositing, Paint &amp; Prep, and Visual Effects artist focused on craft precision, seamless integration, and continuous industry growth.
+        </p>
+      </div>
+
+      {/* Main About Component */}
+      <About />
+
+      {/* Software & Technical Arsenal */}
+      <Skills />
+
+      {/* Experience Timeline */}
+      <Experience />
+
+      {/* Education */}
+      <Education />
+
+      {/* Contact CTA */}
+      <Contact />
+    </div>
+  );
+}

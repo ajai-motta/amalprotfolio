@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <radialGradient id="hero-nebula" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#18182b" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#0c0d14" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#050508" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="hero-flare" x1="0%" y1="40%" x2="100%" y2="60%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Deep cinematic space backdrop -->
+  <rect width="1920" height="1080" fill="#050508" />
+  <rect width="1920" height="1080" fill="url(#hero-nebula)" />
+  <rect width="1920" height="1080" fill="url(#hero-flare)" />
+
+  <!-- Subtle Perspective Grid (Compositor 3D Space) -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="1080" x2="960" y2="400" />
+    <line x1="384" y1="1080" x2="960" y2="400" />
+    <line x1="768" y1="1080" x2="960" y2="400" />
+    <line x1="1152" y1="1080" x2="960" y2="400" />
+    <line x1="1536" y1="1080" x2="960" y2="400" />
+    <line x1="1920" y1="1080" x2="960" y2="400" />
+    <!-- Horizon lines -->
+    <line x1="0" y1="600" x2="1920" y2="600" />
+    <line x1="0" y1="750" x2="1920" y2="750" />
+    <line x1="0" y1="920" x2="1920" y2="920" />
+  </g>
+
+  <!-- VFX Target Reticles and Markers -->
+  <g stroke="#38bdf8" stroke-width="1" opacity="0.2">
+    <circle cx="300" cy="300" r="40" fill="none" stroke-dasharray="4 4" />
+    <circle cx="1620" cy="300" r="40" fill="none" stroke-dasharray="4 4" />
+    <line x1="280" y1="300" x2="320" y2="300" />
+    <line x1="300" y1="280" x2="300" y2="320" />
+    <line x1="1600" y1="300" x2="1640" y2="300" />
+    <line x1="1620" y1="280" x2="1620" y2="320" />
+  </g>
+
+  <!-- Letterbox Guides -->
+  <line x1="0" y1="120" x2="1920" y2="120" stroke="#ffffff" stroke-opacity="0.04" />
+  <line x1="0" y1="960" x2="1920" y2="960" stroke="#ffffff" stroke-opacity="0.04" />
+</svg>

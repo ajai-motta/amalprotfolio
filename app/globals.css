@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070709;
+  --foreground: #f4f4f6;
+  --charcoal-900: #0d0d10;
+  --charcoal-800: #141418;
+  --charcoal-700: #1f1f26;
+  --accent-gold: #d4a373;
+  --accent-cyan: #38bdf8;
+  --vfx-border: rgba(255, 255, 255, 0.08);
+}
+
+@theme {
+  --color-cinema-black: #070709;
+  --color-cinema-dark: #0d0d11;
+  --color-cinema-card: #131317;
+  --color-cinema-elevated: #1a1a20;
+  --color-cinema-border: rgba(255, 255, 255, 0.08);
+  --color-cinema-cyan: #38bdf8;
+  --color-cinema-gold: #d4a373;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: #070709;
+}
+
+body {
+  background-color: #070709;
+  color: #f4f4f6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #38bdf8;
+  selection-color: #070709;
+}
+
+::selection {
+  background: #38bdf8;
+  color: #050507;
+}
+
+/* Cinematic film grain overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Film Aspect & Viewfinder elements */
+.aspect-scope {
+  aspect-ratio: 2.39 / 1;
+}
+
+.aspect-cinema {
+  aspect-ratio: 16 / 9;
+}
+
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Typography classes */
+.editorial-title {
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.cinematic-sub {
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.tracking-vfx {
+  letter-spacing: 0.2em;
+}
+
+/* Custom Before-After Slider Handle */
+.slider-handle {
+  touch-action: none;
+  user-select: none;
+}
+
+/* Glassmorphism restrained for dark VFX palette */
+.vfx-glass {
+  background: rgba(13, 13, 17, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.vfx-card {
+  background: #111116;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vfx-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Subtly pulsed record light */
+@keyframes vfx-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.rec-dot {
+  animation: vfx-pulse 2s infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
