@@ -11,7 +11,7 @@ import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full overflow-hidden bg-[#070709]">
+    <div className="flex flex-col w-full overflow-hidden bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
       {/* Cinematic Fullscreen Hero */}
       <Hero />
 

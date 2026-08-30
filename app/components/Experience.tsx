@@ -39,7 +39,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-[#07070a] relative border-t border-zinc-900 overflow-hidden">
+    <section id="experience" className="py-24 bg-[var(--background)] relative border-t border-b border-zinc-200 dark:border-zinc-900 overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -47,7 +47,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono tracking-[0.25em] text-amber-400 uppercase mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 text-[11px] font-mono tracking-[0.25em] text-amber-600 dark:text-amber-400 uppercase mb-4 shadow-sm"
           >
             <Briefcase className="w-3.5 h-3.5" />
             <span>CAREER TRAJECTORY</span>
@@ -57,12 +57,12 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-serif font-black tracking-[0.14em] text-zinc-100 uppercase"
+            className="text-3xl sm:text-5xl font-serif font-black tracking-[0.14em] text-zinc-900 dark:text-zinc-100 uppercase"
           >
             EXPERIENCE
           </motion.h2>
 
-          <p className="mt-3 text-zinc-400 text-sm sm:text-base font-light">
+          <p className="mt-3 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base font-light">
             Studio production experience, specialized industry training, and ongoing craft development.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function Experience() {
         {/* Timeline Container */}
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical Central Line */}
-          <div className="absolute top-0 bottom-0 left-4 sm:left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-amber-400/80 via-zinc-700 to-zinc-900" />
+          <div className="absolute top-0 bottom-0 left-4 sm:left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-amber-500/80 via-zinc-300 dark:via-zinc-700 to-zinc-200 dark:to-zinc-900" />
 
           <div className="space-y-12 sm:space-y-16">
             {experiences.map((exp, idx) => {
@@ -87,47 +87,47 @@ export default function Experience() {
                   }`}
                 >
                   {/* Timeline Dot Node */}
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 top-0 w-8 h-8 rounded-full bg-zinc-950 border-2 border-amber-400 flex items-center justify-center z-20 shadow-lg shadow-amber-400/20">
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 top-0 w-8 h-8 rounded-full bg-white dark:bg-zinc-950 border-2 border-amber-500 dark:border-amber-400 flex items-center justify-center z-20 shadow-md dark:shadow-lg dark:shadow-amber-400/20">
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500 dark:bg-amber-400" />
                   </div>
 
                   {/* Content Card */}
                   <div className="pl-12 sm:pl-0 sm:w-1/2 sm:px-8 w-full">
-                    <div className="p-6 rounded-md bg-[#0d0d12] border border-zinc-800/80 hover:border-zinc-700 transition-all duration-300 shadow-xl">
+                    <div className="p-6 rounded-md bg-white dark:bg-[#0d0d12] border border-zinc-200 dark:border-zinc-800/80 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 shadow-md dark:shadow-xl">
                       {/* Period Badge */}
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-amber-400">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-amber-600 dark:text-amber-400">
                           <Calendar className="w-3.5 h-3.5" />
                           {exp.period}
                         </span>
                         {exp.isCurrent && (
-                          <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-mono uppercase">
+                          <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] font-mono uppercase">
                             Current
                           </span>
                         )}
                       </div>
 
                       {/* Title & Studio */}
-                      <h3 className="text-xl font-serif font-bold text-white mb-1">
+                      <h3 className="text-xl font-serif font-bold text-zinc-900 dark:text-white mb-1">
                         {exp.role}
                       </h3>
-                      <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-4">
-                        <span className="text-zinc-300 font-medium">{exp.organization}</span>
+                      <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-4">
+                        <span className="text-zinc-800 dark:text-zinc-300 font-medium">{exp.organization}</span>
                         <span>•</span>
                         <span>{exp.location}</span>
                       </div>
 
-                      {/* Conservative Description */}
-                      <p className="text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                      {/* Description */}
+                      <p className="text-sm text-zinc-600 dark:text-zinc-300 font-light leading-relaxed mb-4">
                         {exp.description}
                       </p>
 
                       {/* Focus Area Tags */}
-                      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-800/60">
+                      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-200 dark:border-zinc-800/60">
                         {exp.focusAreas.map((area) => (
                           <span
                             key={area}
-                            className="px-2.5 py-0.5 rounded bg-zinc-900 text-zinc-400 text-[11px] font-mono border border-zinc-800"
+                            className="px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 text-[11px] font-mono border border-zinc-200 dark:border-zinc-800"
                           >
                             {area}
                           </span>

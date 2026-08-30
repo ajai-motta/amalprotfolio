@@ -27,6 +27,13 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onSelect?.(project);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -35,8 +42,12 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => onSelect && onSelect(project)}
-      className="group relative bg-[#0d0d12] rounded-md overflow-hidden border border-zinc-800/80 hover:border-zinc-600/80 transition-all duration-500 cursor-pointer flex flex-col justify-between"
+      onClick={() => onSelect?.(project)}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label={`View production details for ${project.title}`}
+      className="group relative bg-white dark:bg-[#0d0d12] rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-800/80 hover:border-amber-400/80 focus:border-amber-400 focus:outline-none transition-all duration-500 cursor-pointer flex flex-col justify-between shadow-md dark:shadow-none"
     >
       {/* Project Image Frame with Cinematic Zoom */}
       <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-zinc-950">
@@ -49,7 +60,7 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
         />
 
         {/* Subtle Dark Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d12] via-transparent to-black/40 opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
 
         {/* Top Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
@@ -78,19 +89,19 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
       <div className="p-5 sm:p-6 flex-grow flex flex-col justify-between">
         <div>
           {/* VFX Category */}
-          <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-400 tracking-wider uppercase mb-2">
-            <Sparkles className="w-3 h-3 text-sky-400" />
+          <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-500 dark:text-zinc-400 tracking-wider uppercase mb-2">
+            <Sparkles className="w-3 h-3 text-sky-500 dark:text-sky-400" />
             <span>{project.vfxCategory}</span>
           </div>
 
           {/* Title */}
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-100 group-hover:text-amber-300 transition-colors duration-300">
+          <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors duration-300">
             {project.title}
           </h3>
 
           {/* Role / Contribution */}
-          <p className="mt-2 text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
-            <strong className="text-zinc-400 font-medium font-mono text-[11px] uppercase tracking-wide block mb-1">
+          <p className="mt-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 font-light leading-relaxed">
+            <strong className="text-zinc-500 dark:text-zinc-400 font-medium font-mono text-[11px] uppercase tracking-wide block mb-1">
               Production Contribution:
             </strong>
             {project.role}
@@ -98,19 +109,19 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
         </div>
 
         {/* Tags */}
-        <div className="mt-5 pt-4 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-2">
+        <div className="mt-5 pt-4 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-2">
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-400"
+                className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-mono text-zinc-600 dark:text-zinc-400"
               >
                 {tag}
               </span>
             ))}
           </div>
 
-          <span className="text-zinc-500 group-hover:text-amber-300 transition-colors">
+          <span className="text-zinc-400 dark:text-zinc-500 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
             <ArrowUpRight className="w-4 h-4" />
           </span>
         </div>

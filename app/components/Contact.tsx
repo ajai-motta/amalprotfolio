@@ -22,8 +22,33 @@ export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
 
-  const copyToClipboard = (text: string, type: "email" | "phone") => {
-    navigator.clipboard.writeText(text);
+  const copyToClipboard = async (text: string, type: "email" | "phone") => {
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+      }
+    } catch {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    }
+
     if (type === "email") {
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
@@ -125,16 +150,18 @@ export default function Contact() {
                     EMAIL ADDRESS
                   </span>
                   <button
+                    type="button"
                     onClick={() => copyToClipboard("amalbmathew1@gmail.com", "email")}
-                    className="text-zinc-500 hover:text-amber-400 transition-colors"
+                    className="p-1 rounded text-zinc-500 hover:text-amber-400 hover:bg-zinc-800 transition-colors cursor-pointer"
                     title="Copy Email"
+                    aria-label="Copy Email to clipboard"
                   >
                     {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
                 <a
                   href="mailto:amalbmathew1@gmail.com"
-                  className="text-sm font-mono text-zinc-200 hover:text-amber-300 transition-colors break-all"
+                  className="text-sm font-mono text-zinc-200 hover:text-amber-300 transition-colors break-all cursor-pointer"
                 >
                   amalbmathew1@gmail.com
                 </a>
@@ -152,9 +179,11 @@ export default function Contact() {
                     PHONE / WHATSAPP
                   </span>
                   <button
+                    type="button"
                     onClick={() => copyToClipboard("+919061152367", "phone")}
-                    className="text-zinc-500 hover:text-amber-400 transition-colors"
+                    className="p-1 rounded text-zinc-500 hover:text-amber-400 hover:bg-zinc-800 transition-colors cursor-pointer"
                     title="Copy Phone Number"
+                    aria-label="Copy Phone number to clipboard"
                   >
                     {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>

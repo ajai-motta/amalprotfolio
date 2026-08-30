@@ -3,6 +3,7 @@ import { Inter, Cinzel } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -81,19 +82,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cinzel.variable} dark scroll-smooth`}>
-      <body className="bg-[#070709] text-[#f4f4f6] antialiased selection:bg-[#38bdf8] selection:text-[#070709] min-h-screen flex flex-col font-sans">
-        {/* Subtle cinematic film grain noise overlay */}
-        <div className="film-grain" aria-hidden="true" />
-        
-        {/* Global Navigation */}
-        <Navbar />
+    <html lang="en" className={`${inter.variable} ${cinzel.variable} dark scroll-smooth`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const savedTheme = localStorage.getItem('vfx-theme');
+                if (savedTheme === 'light') {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                  document.documentElement.style.colorScheme = 'light';
+                } else {
+                  document.documentElement.classList.remove('light');
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.style.colorScheme = 'dark';
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-[var(--background)] text-[var(--foreground)] antialiased selection:bg-[#38bdf8] selection:text-[#070709] min-h-screen flex flex-col font-sans transition-colors duration-300">
+        <ThemeProvider>
+          {/* Subtle cinematic film grain noise overlay */}
+          <div className="film-grain" aria-hidden="true" />
+          
+          {/* Global Navigation with Dark/Light Toggle */}
+          <Navbar />
 
-        {/* Main Content Area */}
-        <main className="flex-grow">{children}</main>
+          {/* Main Content Area */}
+          <main className="flex-grow">{children}</main>
 
-        {/* Global Cinematic Footer */}
-        <Footer />
+          {/* Global Cinematic Footer */}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

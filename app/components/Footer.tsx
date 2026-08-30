@@ -75,9 +75,11 @@ export default function Footer() {
           {/* Back to top button */}
           <div>
             <button
+              type="button"
               onClick={scrollToTop}
-              className="p-3 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors flex items-center justify-center"
+              className="p-3 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-amber-400 hover:border-amber-400/60 transition-colors flex items-center justify-center cursor-pointer shadow-lg shadow-black/40"
               aria-label="Scroll to top"
+              title="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />
             </button>

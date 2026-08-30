@@ -97,6 +97,19 @@ export default function SelectedWork() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
+  // Close modal on Escape key
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedProject(null);
+      }
+    };
+    if (selectedProject) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedProject]);
+
   const filters = ["All", "Feature Film", "Streaming Series"];
 
   const filteredProjects =
@@ -105,19 +118,19 @@ export default function SelectedWork() {
       : productionsData.filter((p) => p.productionType.toLowerCase().includes(activeFilter.toLowerCase()));
 
   return (
-    <section id="work" className="py-24 bg-[#070709] relative">
+    <section id="work" className="py-24 bg-[var(--background)] relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-zinc-800/80">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-zinc-200 dark:border-zinc-800/80">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono tracking-[0.25em] text-amber-400/90 uppercase mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 text-[11px] font-mono tracking-[0.25em] text-amber-600 dark:text-amber-400/90 uppercase mb-4 shadow-sm">
               <Clapperboard className="w-3.5 h-3.5" />
               <span>SELECTED PRODUCTION EXPERIENCE</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-serif font-black tracking-[0.12em] text-zinc-100 uppercase">
+            <h2 className="text-3xl sm:text-5xl font-serif font-black tracking-[0.12em] text-zinc-900 dark:text-zinc-100 uppercase">
               SELECTED WORK
             </h2>
-            <p className="mt-2 text-zinc-400 text-sm sm:text-base font-light">
+            <p className="mt-2 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base font-light">
               Selected productions and visual effects experience.
             </p>
           </div>
@@ -127,11 +140,12 @@ export default function SelectedWork() {
             {filters.map((filter) => (
               <button
                 key={filter}
+                type="button"
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-1.5 rounded text-xs font-mono tracking-wider uppercase transition-all duration-300 ${
+                className={`px-4 py-1.5 rounded text-xs font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                   activeFilter === filter
                     ? "bg-amber-400 text-zinc-950 font-bold shadow-md shadow-amber-400/20"
-                    : "bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800"
+                    : "bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-800 shadow-sm"
                 }`}
               >
                 {filter}
@@ -141,10 +155,10 @@ export default function SelectedWork() {
         </div>
 
         {/* Responsible Industry Notice Banner */}
-        <div className="mb-10 p-4 rounded-md bg-zinc-900/60 border border-zinc-800/80 flex items-start gap-3 text-xs text-zinc-400 font-mono leading-relaxed">
-          <Info className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+        <div className="mb-10 p-4 rounded-md bg-zinc-100/80 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 flex items-start gap-3 text-xs text-zinc-600 dark:text-zinc-400 font-mono leading-relaxed shadow-sm">
+          <Info className="w-4 h-4 text-sky-500 dark:text-sky-400 shrink-0 mt-0.5" />
           <div>
-            <span className="text-zinc-200 font-semibold uppercase tracking-wider">
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold uppercase tracking-wider">
               Production Portfolio Notice:
             </span>{" "}
             The titles listed below represent selected productions associated with professional experience, studio training, and collaborative visual-effects workflows (Paint/Prep, wire removal, plate restoration, and shot preparation).
@@ -171,7 +185,7 @@ export default function SelectedWork() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-50 bg-black/80 dark:bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 cursor-pointer"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
@@ -179,7 +193,7 @@ export default function SelectedWork() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-3xl bg-zinc-950 border border-zinc-800 rounded-lg overflow-hidden shadow-2xl"
+              className="relative w-full max-w-3xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden shadow-2xl cursor-default"
             >
               {/* Modal Banner Graphic */}
               <div className="relative aspect-[16/8] w-full bg-zinc-900 overflow-hidden">
@@ -189,10 +203,12 @@ export default function SelectedWork() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <button
+                  type="button"
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/70 text-zinc-300 hover:text-white border border-zinc-700 transition-colors"
+                  className="absolute top-4 right-4 p-2 rounded-full bg-black/70 text-zinc-300 hover:text-white hover:bg-black/90 border border-zinc-700 transition-colors cursor-pointer"
+                  aria-label="Close Project Details"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -201,35 +217,35 @@ export default function SelectedWork() {
               {/* Modal Body */}
               <div className="p-6 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <span className="px-2.5 py-1 rounded bg-amber-400/10 text-amber-400 text-xs font-mono font-semibold">
+                  <span className="px-2.5 py-1 rounded bg-amber-400/10 text-amber-600 dark:text-amber-400 text-xs font-mono font-semibold">
                     {selectedProject.year}
                   </span>
-                  <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
+                  <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
                     {selectedProject.productionType} • {selectedProject.vfxCategory}
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-950 dark:text-white mb-4">
                   {selectedProject.title}
                 </h3>
 
-                <div className="space-y-4 text-sm text-zinc-300 leading-relaxed font-light">
-                  <div className="p-3.5 rounded bg-zinc-900/80 border border-zinc-800">
-                    <span className="block text-[11px] font-mono text-amber-400 font-medium uppercase tracking-wider mb-1">
+                <div className="space-y-4 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed font-light">
+                  <div className="p-3.5 rounded bg-zinc-50 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800">
+                    <span className="block text-[11px] font-mono text-amber-600 dark:text-amber-400 font-medium uppercase tracking-wider mb-1">
                       Professional Contribution
                     </span>
-                    <p>{selectedProject.role}</p>
+                    <p className="text-zinc-800 dark:text-zinc-200">{selectedProject.role}</p>
                   </div>
 
                   <p>{selectedProject.description}</p>
                 </div>
 
                 {/* Tech Tags */}
-                <div className="mt-6 pt-4 border-t border-zinc-800/80 flex flex-wrap gap-2">
+                <div className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap gap-2">
                   {selectedProject.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-400"
+                      className="px-3 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-400"
                     >
                       {tag}
                     </span>

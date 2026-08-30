@@ -8,7 +8,7 @@ import { SlidersHorizontal, ArrowLeftRight, Layers, Sparkles, CheckCircle2 } fro
 export default function VFXBreakdown() {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [activeStage, setActiveStage] = useState<number>(1);
+  const [activeStage, setActiveStage] = useState<number>(3);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const stages = [
@@ -16,29 +16,29 @@ export default function VFXBreakdown() {
       id: "raw",
       name: "Original Plate",
       short: "RAW PLATE",
-      img: "/images/breakdown/plate_raw.svg",
-      desc: "Live action footage with green screen backdrop, wire harnesses, camera tracking markers, and studio rigging.",
+      img: "/images/breakdown/comp_before.png",
+      desc: "Original live-action valley landscape plate prior to CG integration, atmospheric fog, and compositing passes.",
     },
     {
       id: "prep",
       name: "Paint & Prep",
       short: "PAINT / PREP",
       img: "/images/breakdown/plate_prep.svg",
-      desc: "Complete wire removal, tracking marker paint-out, cleanplate synthesis, and precise character rotoscopy.",
+      desc: "Plate stabilization, cleanplate reconstruction, sky balancing, and environment prep passes.",
     },
     {
       id: "tracking",
       name: "Tracking & CGI",
       short: "TRACKING / CG",
       img: "/images/breakdown/plate_cg.svg",
-      desc: "3D camera matchmove, environment projection, digital asset placement, and spatial depth map integration.",
+      desc: "3D camera matchmove, spatial depth mapping, and integration of creature and military helicopter assets.",
     },
     {
       id: "final",
-      name: "Compositing Final",
+      name: "Final Composite",
       short: "FINAL COMP",
-      img: "/images/breakdown/plate_final.svg",
-      desc: "Atmospheric volume fog, anamorphic lens flare integration, ACEScg color grading, edge light wrapping, and film grain.",
+      img: "/images/breakdown/comp_after.png",
+      desc: "Complete VFX composite featuring giant creature and dual attack helicopters integrated with volumetric mist, rotor motion blur, optical lens aberrations, and cinematic color grading.",
     },
   ];
 
@@ -92,7 +92,7 @@ export default function VFXBreakdown() {
   const currentCompareStage = stages[activeStage];
 
   return (
-    <section id="breakdown" className="py-24 bg-[#09090d] relative overflow-hidden border-t border-zinc-900">
+    <section id="breakdown" className="py-24 bg-zinc-50/80 dark:bg-[#09090d] relative overflow-hidden border-t border-b border-zinc-200 dark:border-zinc-900 transition-colors duration-300">
       {/* Subtle Background Glow */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-amber-500/5 blur-[140px] rounded-full pointer-events-none" />
 
@@ -103,7 +103,7 @@ export default function VFXBreakdown() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono tracking-[0.25em] text-amber-400 uppercase mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 text-[11px] font-mono tracking-[0.25em] text-amber-600 dark:text-amber-400 uppercase mb-4 shadow-sm"
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             <span>INTERACTIVE VFX PIPELINE</span>
@@ -113,7 +113,7 @@ export default function VFXBreakdown() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-serif font-black tracking-[0.14em] text-zinc-100 uppercase"
+            className="text-3xl sm:text-5xl font-serif font-black tracking-[0.14em] text-zinc-900 dark:text-zinc-100 uppercase"
           >
             FROM PLATE TO FINAL
           </motion.h2>
@@ -123,17 +123,17 @@ export default function VFXBreakdown() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-mono tracking-wider text-zinc-400"
+            className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-mono tracking-wider text-zinc-500 dark:text-zinc-400"
           >
-            <span className="text-amber-400 font-semibold">ORIGINAL PLATE</span>
-            <span className="text-zinc-600">→</span>
-            <span className="text-sky-400 font-semibold">PAINT / PREP</span>
-            <span className="text-zinc-600">→</span>
-            <span className="text-purple-400 font-semibold">TRACKING</span>
-            <span className="text-zinc-600">→</span>
-            <span className="text-emerald-400 font-semibold">COMPOSITING</span>
-            <span className="text-zinc-600">→</span>
-            <span className="text-zinc-200 font-bold">FINAL</span>
+            <span className="text-amber-600 dark:text-amber-400 font-semibold">ORIGINAL PLATE</span>
+            <span className="text-zinc-400 dark:text-zinc-600">→</span>
+            <span className="text-sky-600 dark:text-sky-400 font-semibold">PAINT / PREP</span>
+            <span className="text-zinc-400 dark:text-zinc-600">→</span>
+            <span className="text-purple-600 dark:text-purple-400 font-semibold">TRACKING</span>
+            <span className="text-zinc-400 dark:text-zinc-600">→</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">COMPOSITING</span>
+            <span className="text-zinc-400 dark:text-zinc-600">→</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-bold">FINAL</span>
           </motion.div>
         </div>
 
@@ -142,9 +142,9 @@ export default function VFXBreakdown() {
           {technicalBadges.map((badge) => (
             <span
               key={badge}
-              className="px-3.5 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-mono tracking-wider text-zinc-300 flex items-center gap-1.5"
+              className="px-3.5 py-1 rounded-full bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 text-xs font-mono tracking-wider text-zinc-700 dark:text-zinc-300 flex items-center gap-1.5 shadow-sm"
             >
-              <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
               <span>{badge}</span>
             </span>
           ))}
@@ -157,14 +157,16 @@ export default function VFXBreakdown() {
             {stages.map((stage, idx) => (
               <button
                 key={stage.id}
+                type="button"
                 onClick={() => setActiveStage(idx)}
-                className={`py-2.5 px-3 rounded text-left transition-all duration-300 border ${
+                aria-pressed={activeStage === idx}
+                className={`py-2.5 px-3 rounded text-left transition-all duration-300 border cursor-pointer ${
                   activeStage === idx
-                    ? "bg-zinc-800/90 border-amber-400/60 shadow-lg text-white"
-                    : "bg-zinc-950/60 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
+                    ? "bg-zinc-100 dark:bg-zinc-800/90 border-amber-500 dark:border-amber-400/60 shadow-md text-zinc-950 dark:text-white"
+                    : "bg-white dark:bg-zinc-950/60 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-900 shadow-sm"
                 }`}
               >
-                <span className="block text-[10px] font-mono text-zinc-500">STAGE 0{idx + 1}</span>
+                <span className="block text-[10px] font-mono text-zinc-400 dark:text-zinc-500">STAGE 0{idx + 1}</span>
                 <span className="text-xs font-bold font-mono tracking-wider uppercase block truncate">
                   {stage.short}
                 </span>
@@ -177,7 +179,7 @@ export default function VFXBreakdown() {
             ref={containerRef}
             onMouseDown={() => setIsDragging(true)}
             onTouchStart={() => setIsDragging(true)}
-            className="relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-zinc-800 select-none shadow-2xl bg-black cursor-ew-resize group"
+            className="relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-800 select-none shadow-2xl bg-black cursor-ew-resize group"
           >
             {/* Background Layer: Compared Stage */}
             <div className="absolute inset-0 w-full h-full">
@@ -199,7 +201,7 @@ export default function VFXBreakdown() {
               style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
             >
               <Image
-                src="/images/breakdown/plate_raw.svg"
+                src="/images/breakdown/comp_before.png"
                 alt="Original Plate"
                 fill
                 priority
@@ -228,17 +230,17 @@ export default function VFXBreakdown() {
           </div>
 
           {/* Description of Active Stage */}
-          <div className="mt-4 p-4 rounded bg-zinc-950 border border-zinc-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+          <div className="mt-4 p-4 rounded bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-zinc-600 dark:text-zinc-400 shadow-sm transition-colors">
             <div>
-              <span className="text-amber-400 font-semibold uppercase tracking-wider block mb-1">
+              <span className="text-amber-600 dark:text-amber-400 font-semibold uppercase tracking-wider block mb-1">
                 Active Comparison: Original Plate vs. {currentCompareStage.name}
               </span>
-              <p className="font-sans text-zinc-300 text-sm font-light">
+              <p className="font-sans text-zinc-800 dark:text-zinc-300 text-sm font-light">
                 {currentCompareStage.desc}
               </p>
             </div>
             <div className="shrink-0 flex items-center gap-2 text-[11px] text-zinc-500">
-              <Layers className="w-3.5 h-3.5 text-sky-400" />
+              <Layers className="w-3.5 h-3.5 text-sky-500 dark:text-sky-400" />
               <span>Foundry Nuke / Silhouette Node Tree</span>
             </div>
           </div>
