@@ -14,7 +14,7 @@ export const productionsData: ProjectData[] = [
     role: "Paint & Prep workflows, wire harness removal, and shot preparation pipeline support.",
     productionType: "Feature Film",
     vfxCategory: "Paint & Prep / Cleanup",
-    image: "/images/projects/deadpool3.svg",
+    image: "/images/projects/deadpool3.jpg",
     tags: ["Paint/Prep", "Rig Removal", "Nuke", "Stereo Clean"],
     description:
       "Contributed to high-profile action sequences requiring meticulous wire removal, stunt rig paint-outs, and cleanplate creation within industry standard ACES color pipeline.",
@@ -26,7 +26,7 @@ export const productionsData: ProjectData[] = [
     role: "Plate preparation, complex dust/sand environmental cleanup, and marker paint-outs.",
     productionType: "Feature Film",
     vfxCategory: "Environment Prep & Cleanup",
-    image: "/images/projects/furiosa.svg",
+    image: "/images/projects/furiosa.jpg",
     tags: ["Cleanplate", "Environment Prep", "Silhouette", "Mocha Pro"],
     description:
       "Assisted in large-scale desert environment cleanups, vehicle rig removals, and camera artifact elimination for intense high-speed chase sequences.",
@@ -38,7 +38,7 @@ export const productionsData: ProjectData[] = [
     role: "Visual effects prep, desert sequence cleanups, and organic plate restoration.",
     productionType: "Feature Film",
     vfxCategory: "Plate Prep & Compositing Support",
-    image: "/images/projects/aadujeevitham.svg",
+    image: "/images/projects/aadujeevitham.jpg",
     tags: ["Plate Prep", "Texture Patching", "Cleanup", "Nuke"],
     description:
       "Executed shot preparation and technical paint/prep for challenging remote desert cinematography, restoring plates while preserving natural film grain textures.",
@@ -50,7 +50,7 @@ export const productionsData: ProjectData[] = [
     role: "Period action sequence cleanup, rig removal, and tracking marker paint-out.",
     productionType: "Feature Film",
     vfxCategory: "Period VFX & Cleanup",
-    image: "/images/projects/thangalaan.svg",
+    image: "/images/projects/thangalaan.jpg",
     tags: ["Wire Removal", "Marker Cleanup", "Paint/Prep", "Rotoscopy"],
     description:
       "Supported historical period drama visuals with detailed cleanup of modern filming apparatus, stunt gear paint-outs, and background element preparation.",
@@ -62,7 +62,7 @@ export const productionsData: ProjectData[] = [
     role: "Blue/Green screen plate prep, stunt wire paint-outs, and element cleanup.",
     productionType: "Streaming Series",
     vfxCategory: "Series VFX / Plate Prep",
-    image: "/images/projects/avatar.svg",
+    image: "/images/projects/avatar.jpg",
     tags: ["Blue Screen Prep", "Rig Cleanup", "Nuke", "Tracking"],
     description:
       "Delivered clean background plates and rig removals for fantasy elemental action scenes, enabling seamless CGI creature and magic element integration.",
@@ -74,7 +74,7 @@ export const productionsData: ProjectData[] = [
     role: "Hard-surface suit marker cleanups, wire rig removal, and tracking support.",
     productionType: "Feature Film",
     vfxCategory: "Superhero CGI Support",
-    image: "/images/projects/bluebeetle.svg",
+    image: "/images/projects/bluebeetle.jpg",
     tags: ["Suit Tracking Prep", "Wire Removal", "Cleanup", "Nuke"],
     description:
       "Performed detailed plate cleanups around complex practical superhero armor, eliminating tracking markers and harness wires for CGI weapon transitions.",
@@ -86,7 +86,7 @@ export const productionsData: ProjectData[] = [
     role: "Crowd multiplication plate preparation, stadium background cleanup, and digital fixes.",
     productionType: "Television Series",
     vfxCategory: "Invisible VFX & Crowd Prep",
-    image: "/images/projects/tedlasso.svg",
+    image: "/images/projects/tedlasso.jpg",
     tags: ["Crowd Plate Prep", "Cleanplate", "Cleanup", "Photoshop"],
     description:
       "Contributed to invisible visual effects tasks including stadium background cleanups, signage adjustments, and crowd integration plate prep.",
