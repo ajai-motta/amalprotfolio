@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard, { ProjectData } from "./ProjectCard";
-import { Film, Info, X, ShieldCheck, Clapperboard, Sparkles } from "lucide-react";
+import { Film, Info, X, ShieldCheck, Clapperboard, Sparkles, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 export const productionsData: ProjectData[] = [
@@ -15,6 +15,7 @@ export const productionsData: ProjectData[] = [
     productionType: "Feature Film",
     vfxCategory: "Paint & Prep / Cleanup",
     image: "/images/projects/deadpool3.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt6263850/",
     tags: ["Paint/Prep", "Rig Removal", "Nuke", "Stereo Clean"],
     description:
       "Contributed to high-profile action sequences requiring meticulous wire removal, stunt rig paint-outs, and cleanplate creation within industry standard ACES color pipeline.",
@@ -27,6 +28,7 @@ export const productionsData: ProjectData[] = [
     productionType: "Feature Film",
     vfxCategory: "Environment Prep & Cleanup",
     image: "/images/projects/furiosa.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt12037194/",
     tags: ["Cleanplate", "Environment Prep", "Silhouette", "Mocha Pro"],
     description:
       "Assisted in large-scale desert environment cleanups, vehicle rig removals, and camera artifact elimination for intense high-speed chase sequences.",
@@ -39,6 +41,7 @@ export const productionsData: ProjectData[] = [
     productionType: "Feature Film",
     vfxCategory: "Plate Prep & Compositing Support",
     image: "/images/projects/aadujeevitham.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt5525650/",
     tags: ["Plate Prep", "Texture Patching", "Cleanup", "Nuke"],
     description:
       "Executed shot preparation and technical paint/prep for challenging remote desert cinematography, restoring plates while preserving natural film grain textures.",
@@ -51,6 +54,7 @@ export const productionsData: ProjectData[] = [
     productionType: "Feature Film",
     vfxCategory: "Period VFX & Cleanup",
     image: "/images/projects/thangalaan.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt23018924/",
     tags: ["Wire Removal", "Marker Cleanup", "Paint/Prep", "Rotoscopy"],
     description:
       "Supported historical period drama visuals with detailed cleanup of modern filming apparatus, stunt gear paint-outs, and background element preparation.",
@@ -63,6 +67,7 @@ export const productionsData: ProjectData[] = [
     productionType: "Streaming Series",
     vfxCategory: "Series VFX / Plate Prep",
     image: "/images/projects/avatar.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt9376612/",
     tags: ["Blue Screen Prep", "Rig Cleanup", "Nuke", "Tracking"],
     description:
       "Delivered clean background plates and rig removals for fantasy elemental action scenes, enabling seamless CGI creature and magic element integration.",
@@ -75,6 +80,7 @@ export const productionsData: ProjectData[] = [
     productionType: "Feature Film",
     vfxCategory: "Superhero CGI Support",
     image: "/images/projects/bluebeetle.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt9362930/",
     tags: ["Suit Tracking Prep", "Wire Removal", "Cleanup", "Nuke"],
     description:
       "Performed detailed plate cleanups around complex practical superhero armor, eliminating tracking markers and harness wires for CGI weapon transitions.",
@@ -82,11 +88,12 @@ export const productionsData: ProjectData[] = [
   {
     id: "ted-lasso",
     title: "Ted Lasso",
-    year: "Year to be verified",
+    year: "2020–2023",
     role: "Crowd multiplication plate preparation, stadium background cleanup, and digital fixes.",
     productionType: "Television Series",
     vfxCategory: "Invisible VFX & Crowd Prep",
     image: "/images/projects/tedlasso.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt10986410/",
     tags: ["Crowd Plate Prep", "Cleanplate", "Cleanup", "Photoshop"],
     description:
       "Contributed to invisible visual effects tasks including stadium background cleanups, signage adjustments, and crowd integration plate prep.",
@@ -225,9 +232,24 @@ export default function SelectedWork() {
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-950 dark:text-white mb-4">
-                  {selectedProject.title}
-                </h3>
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-950 dark:text-white">
+                    {selectedProject.title}
+                  </h3>
+                  {selectedProject.imdbUrl && (
+                    <a
+                      href={selectedProject.imdbUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#f5c518] hover:bg-[#e2b616] text-black font-black text-xs tracking-tight transition-transform duration-200 hover:scale-105 shadow-md shrink-0"
+                      title={`Open ${selectedProject.title} on IMDb`}
+                      aria-label={`Open ${selectedProject.title} on IMDb`}
+                    >
+                      <span>IMDb</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
 
                 <div className="space-y-4 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed font-light">
                   <div className="p-3.5 rounded bg-zinc-50 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800">
@@ -240,16 +262,30 @@ export default function SelectedWork() {
                   <p>{selectedProject.description}</p>
                 </div>
 
-                {/* Tech Tags */}
-                <div className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap gap-2">
-                  {selectedProject.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-400"
+                {/* Tech Tags & IMDb Action */}
+                <div className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-400"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {selectedProject.imdbUrl && (
+                    <a
+                      href={selectedProject.imdbUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-mono text-amber-600 dark:text-amber-400 hover:underline"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <span>View Title on IMDb</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

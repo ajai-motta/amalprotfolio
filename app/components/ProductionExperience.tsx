@@ -2,17 +2,59 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Film, Clapperboard, Sparkles, CheckCircle2 } from "lucide-react";
+import { Film, Clapperboard, Sparkles, CheckCircle2, ExternalLink } from "lucide-react";
 
 export default function ProductionExperience() {
   const productions = [
-    { title: "Deadpool 3", year: "2024", type: "Feature Film", focus: "Paint & Prep / Rig Removal" },
-    { title: "Furiosa: A Mad Max Saga", year: "2024", type: "Feature Film", focus: "Environment Prep & Cleanup" },
-    { title: "Aadujeevitham", year: "2024", type: "Feature Film", focus: "Desert Sequence Prep & Cleanplate" },
-    { title: "Thangalaan", year: "2024", type: "Feature Film", focus: "Period Action VFX Prep" },
-    { title: "Avatar: The Last Airbender", year: "2024", type: "Streaming Series", focus: "Elemental FX Plate Prep" },
-    { title: "Blue Beetle", year: "2023", type: "Feature Film", focus: "Suit Tracking Prep & Wire Removal" },
-    { title: "Ted Lasso", year: "Year to be verified", type: "Television Series", focus: "Crowd & Stadium Plate Prep" },
+    {
+      title: "Deadpool 3",
+      year: "2024",
+      type: "Feature Film",
+      focus: "Paint & Prep / Rig Removal",
+      imdbUrl: "https://www.imdb.com/title/tt6263850/",
+    },
+    {
+      title: "Furiosa: A Mad Max Saga",
+      year: "2024",
+      type: "Feature Film",
+      focus: "Environment Prep & Cleanup",
+      imdbUrl: "https://www.imdb.com/title/tt12037194/",
+    },
+    {
+      title: "Aadujeevitham",
+      year: "2024",
+      type: "Feature Film",
+      focus: "Desert Sequence Prep & Cleanplate",
+      imdbUrl: "https://www.imdb.com/title/tt5525650/",
+    },
+    {
+      title: "Thangalaan",
+      year: "2024",
+      type: "Feature Film",
+      focus: "Period Action VFX Prep",
+      imdbUrl: "https://www.imdb.com/title/tt23018924/",
+    },
+    {
+      title: "Avatar: The Last Airbender",
+      year: "2024",
+      type: "Streaming Series",
+      focus: "Elemental FX Plate Prep",
+      imdbUrl: "https://www.imdb.com/title/tt9376612/",
+    },
+    {
+      title: "Blue Beetle",
+      year: "2023",
+      type: "Feature Film",
+      focus: "Suit Tracking Prep & Wire Removal",
+      imdbUrl: "https://www.imdb.com/title/tt9362930/",
+    },
+    {
+      title: "Ted Lasso",
+      year: "2020–2023",
+      type: "Television Series",
+      focus: "Crowd & Stadium Plate Prep",
+      imdbUrl: "https://www.imdb.com/title/tt10986410/",
+    },
   ];
 
   return (
@@ -50,9 +92,24 @@ export default function ProductionExperience() {
                   <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-amber-600 dark:text-amber-300">
                     {prod.year}
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                    {prod.type}
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    {prod.imdbUrl && (
+                      <a
+                        href={prod.imdbUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-1.5 py-0.5 rounded bg-[#f5c518] hover:bg-[#e2b616] text-black font-extrabold text-[9px] font-mono tracking-tight transition-transform duration-200 hover:scale-105 shadow-sm flex items-center gap-0.5"
+                        title={`View ${prod.title} on IMDb`}
+                        aria-label={`View ${prod.title} on IMDb`}
+                      >
+                        <span>IMDb</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    )}
+                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
+                      {prod.type}
+                    </span>
+                  </div>
                 </div>
 
                 <h3 className="text-lg font-serif font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors mt-2">
@@ -60,9 +117,23 @@ export default function ProductionExperience() {
                 </h3>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-900 text-xs font-mono text-zinc-600 dark:text-zinc-400 flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-sky-500 dark:text-sky-400 shrink-0" />
-                <span className="truncate">{prod.focus}</span>
+              <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-900 text-xs font-mono text-zinc-600 dark:text-zinc-400 flex items-center justify-between gap-1.5">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <Sparkles className="w-3 h-3 text-sky-500 dark:text-sky-400 shrink-0" />
+                  <span className="truncate">{prod.focus}</span>
+                </div>
+                {prod.imdbUrl && (
+                  <a
+                    href={prod.imdbUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-600 dark:text-amber-400 hover:underline shrink-0 text-[10px] flex items-center gap-1"
+                    title={`Open ${prod.title} on IMDb`}
+                  >
+                    <span>IMDb</span>
+                    <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

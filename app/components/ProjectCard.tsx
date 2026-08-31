@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Film, Eye, Sparkles, Layers, ArrowUpRight } from "lucide-react";
+import { Film, Eye, Sparkles, Layers, ArrowUpRight, ExternalLink } from "lucide-react";
 
 export interface ProjectData {
   id: string;
@@ -16,6 +16,7 @@ export interface ProjectData {
   aspectRatio?: string;
   tags: string[];
   description: string;
+  imdbUrl?: string;
 }
 
 interface ProjectCardProps {
@@ -67,9 +68,25 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
           <span className="px-2.5 py-1 rounded bg-black/80 backdrop-blur-md border border-zinc-700/60 text-[10px] font-mono tracking-wider text-amber-300 font-semibold uppercase">
             {project.year}
           </span>
-          <span className="px-2.5 py-1 rounded bg-black/80 backdrop-blur-md border border-zinc-700/60 text-[10px] font-mono tracking-wider text-zinc-300 uppercase">
-            {project.productionType}
-          </span>
+          <div className="flex items-center gap-1.5">
+            {project.imdbUrl && (
+              <a
+                href={project.imdbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="px-2 py-0.5 rounded bg-[#f5c518] hover:bg-[#e2b616] text-black font-extrabold text-[10px] font-mono tracking-tight transition-transform duration-200 hover:scale-105 shadow-md flex items-center gap-1"
+                title={`View ${project.title} on IMDb`}
+                aria-label={`View ${project.title} on IMDb`}
+              >
+                <span>IMDb</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </a>
+            )}
+            <span className="px-2.5 py-1 rounded bg-black/80 backdrop-blur-md border border-zinc-700/60 text-[10px] font-mono tracking-wider text-zinc-300 uppercase">
+              {project.productionType}
+            </span>
+          </div>
         </div>
 
         {/* Hover View Breakdown Overlay */}
@@ -95,9 +112,11 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
           </div>
 
           {/* Title */}
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors duration-300">
-            {project.title}
-          </h3>
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors duration-300">
+              {project.title}
+            </h3>
+          </div>
 
           {/* Role / Contribution */}
           <p className="mt-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 font-light leading-relaxed">
@@ -108,7 +127,7 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
           </p>
         </div>
 
-        {/* Tags */}
+        {/* Tags & Actions */}
         <div className="mt-5 pt-4 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-2">
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
@@ -121,9 +140,25 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
             ))}
           </div>
 
-          <span className="text-zinc-400 dark:text-zinc-500 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
-            <ArrowUpRight className="w-4 h-4" />
-          </span>
+          <div className="flex items-center gap-2">
+            {project.imdbUrl && (
+              <a
+                href={project.imdbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#f5c518] hover:bg-[#e2b616] text-black font-extrabold text-[10px] font-mono tracking-tight transition-transform duration-200 hover:scale-105 shadow-sm"
+                title={`Open ${project.title} on IMDb`}
+                aria-label={`Open ${project.title} on IMDb`}
+              >
+                <span>IMDb</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </a>
+            )}
+            <span className="text-zinc-400 dark:text-zinc-500 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
+              <ArrowUpRight className="w-4 h-4" />
+            </span>
+          </div>
         </div>
       </div>
     </motion.div>
