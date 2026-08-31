@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowUpRight, Copy, Check, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, Copy, Check, Sparkles, Film } from "lucide-react";
 
 // Crisp inline LinkedIn icon
 function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -122,6 +122,17 @@ export default function Contact() {
             >
               <LinkedInIcon className="w-4 h-4 text-sky-400" />
               <span>CONNECT ON LINKEDIN</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white" />
+            </a>
+
+            <a
+              href="https://www.imdb.com/name/nm18127511/?ref_=ttfc_fcr_19_62"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3.5 rounded-sm bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-700 font-semibold text-xs uppercase tracking-[0.2em] hover:border-zinc-500 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2 group"
+            >
+              <Film className="w-4 h-4 text-amber-400" />
+              <span>IMDb PROFILE</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white" />
             </a>
 

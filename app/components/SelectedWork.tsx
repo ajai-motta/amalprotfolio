@@ -8,6 +8,45 @@ import Image from "next/image";
 
 export const productionsData: ProjectData[] = [
   {
+    id: "dhurandhar",
+    title: "Dhurandhar: The Revenge",
+    year: "2026",
+    role: "3D visual effects assets, hard-surface tracking, and CGI integration pipeline.",
+    productionType: "Feature Film",
+    vfxCategory: "3D & Visual Effects",
+    image: "/images/projects/dhurandhar.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt39139925/",
+    tags: ["3D VFX", "CGI Pipeline", "Action VFX", "Compositing"],
+    description:
+      "Contributed as a 3D and visual effects artist on high-octane spy thriller sequences, handling asset tracking, CGI integration, and visual effects enhancements.",
+  },
+  {
+    id: "pallichattambi",
+    title: "Pallichattambi",
+    year: "2026",
+    role: "Period action sequence visual effects, cleanplates, and plate preparation.",
+    productionType: "Feature Film",
+    vfxCategory: "Period Action VFX",
+    image: "/images/projects/pallichattambi.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt10515398/",
+    tags: ["VFX Artist", "Cleanplate", "Period VFX", "Nuke"],
+    description:
+      "Delivered visual effects shots for 1950s period action scenes, executing detailed rig cleanups, background reconstructions, and seamless plate integration.",
+  },
+  {
+    id: "bhabhaba",
+    title: "Bha. Bha. Ba.",
+    year: "2025",
+    role: "Visual effects compositing, wire/rig cleanups, and dynamic shot finishing.",
+    productionType: "Feature Film",
+    vfxCategory: "Action Comedy VFX",
+    image: "/images/projects/bhabhaba.jpg",
+    imdbUrl: "https://www.imdb.com/title/tt31186715/",
+    tags: ["Visual Effects", "Cleanup", "Rig Removal", "Compositing"],
+    description:
+      "Executed visual effects and technical plate cleanups for dynamic action-comedy sequences and character visual effects enhancements.",
+  },
+  {
     id: "deadpool-3",
     title: "Deadpool 3",
     year: "2024",

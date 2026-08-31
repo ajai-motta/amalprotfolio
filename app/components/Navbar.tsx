@@ -35,6 +35,11 @@ export default function Navbar() {
     { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
     { label: "Experience", href: "/#experience" },
+    {
+      label: "IMDb",
+      href: "https://www.imdb.com/name/nm18127511/?ref_=ttfc_fcr_19_62",
+      external: true,
+    },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -68,6 +73,21 @@ export default function Navbar() {
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] font-medium">
           {navLinks.map((link) => {
+            if (link.external) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative py-1 flex items-center gap-1 text-zinc-600 dark:text-zinc-400 transition-colors duration-300 hover:text-amber-500 dark:hover:text-amber-400 cursor-pointer"
+                >
+                  <span>{link.label}</span>
+                  <ArrowUpRight className="w-3 h-3 text-zinc-400 group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors" />
+                </a>
+              );
+            }
+
             const isActive =
               pathname === link.href || (link.href.startsWith("/#") && pathname === "/");
             return (
@@ -130,17 +150,40 @@ export default function Navbar() {
             className="md:hidden bg-white/98 dark:bg-[#0a0a0d]/95 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-2xl"
           >
             <div className="px-6 py-6 space-y-4 flex flex-col">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-medium tracking-[0.2em] uppercase text-zinc-700 dark:text-zinc-300 hover:text-amber-500 dark:hover:text-amber-400 py-2 border-b border-zinc-100 dark:border-zinc-900 flex items-center justify-between cursor-pointer"
-                >
-                  <span>{link.label}</span>
-                  <span className="text-[10px] text-zinc-400 dark:text-zinc-600 font-mono">0{navLinks.indexOf(link) + 1}</span>
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                if (link.external) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-sm font-medium tracking-[0.2em] uppercase text-zinc-700 dark:text-zinc-300 hover:text-amber-500 dark:hover:text-amber-400 py-2 border-b border-zinc-100 dark:border-zinc-900 flex items-center justify-between cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span>{link.label}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
+                      </span>
+                      <span className="text-[10px] text-zinc-400 dark:text-zinc-600 font-mono">
+                        0{navLinks.indexOf(link) + 1}
+                      </span>
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-sm font-medium tracking-[0.2em] uppercase text-zinc-700 dark:text-zinc-300 hover:text-amber-500 dark:hover:text-amber-400 py-2 border-b border-zinc-100 dark:border-zinc-900 flex items-center justify-between cursor-pointer"
+                  >
+                    <span>{link.label}</span>
+                    <span className="text-[10px] text-zinc-400 dark:text-zinc-600 font-mono">0{navLinks.indexOf(link) + 1}</span>
+                  </Link>
+                );
+              })}
               <div className="pt-2 flex flex-col gap-3">
                 <div className="flex items-center justify-between py-2 border-t border-zinc-100 dark:border-zinc-900">
                   <span className="text-xs font-mono uppercase text-zinc-600 dark:text-zinc-400">Appearance Mode</span>

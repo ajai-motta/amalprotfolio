@@ -70,6 +70,16 @@ export default function Footer() {
               <LinkedInIcon className="w-3.5 h-3.5 text-zinc-500" />
               <span>LinkedIn</span>
             </a>
+
+            <a
+              href="https://www.imdb.com/name/nm18127511/?ref_=ttfc_fcr_19_62"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-zinc-400 hover:text-amber-400 transition-colors py-1"
+            >
+              <Film className="w-3.5 h-3.5 text-amber-500" />
+              <span>IMDb</span>
+            </a>
           </div>
 
           {/* Back to top button */}

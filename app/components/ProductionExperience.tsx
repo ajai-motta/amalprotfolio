@@ -7,6 +7,27 @@ import { Film, Clapperboard, Sparkles, CheckCircle2, ExternalLink } from "lucide
 export default function ProductionExperience() {
   const productions = [
     {
+      title: "Dhurandhar: The Revenge",
+      year: "2026",
+      type: "Feature Film",
+      focus: "3D & Visual Effects Artist",
+      imdbUrl: "https://www.imdb.com/title/tt39139925/",
+    },
+    {
+      title: "Pallichattambi",
+      year: "2026",
+      type: "Feature Film",
+      focus: "Visual Effects Artist",
+      imdbUrl: "https://www.imdb.com/title/tt10515398/",
+    },
+    {
+      title: "Bha. Bha. Ba.",
+      year: "2025",
+      type: "Feature Film",
+      focus: "Visual Effects Artist",
+      imdbUrl: "https://www.imdb.com/title/tt31186715/",
+    },
+    {
       title: "Deadpool 3",
       year: "2024",
       type: "Feature Film",
