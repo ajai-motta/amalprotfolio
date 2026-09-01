@@ -14,7 +14,7 @@ interface ShowreelProps {
 }
 
 export default function Showreel({
-  embedUrl = "https://www.youtube.com/embed/TiWs9n4fhys?si=q7D6L1l8YNoji1kW",
+  embedUrl = "https://www.youtube.com/embed/WlGBBPkwpyE?si=6NU-16YaosFmEsF_",
   posterSrc = "/images/showreel_poster.svg",
   title = "YouTube video player",
 }: ShowreelProps) {
