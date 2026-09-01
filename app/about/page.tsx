@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "About | Amal B Mathew - VFX Artist",
   description:
     "Learn more about Amal B Mathew, professional background, technical software toolkit, career timeline, and VFX philosophy.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

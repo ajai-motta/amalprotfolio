@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Selected VFX Work | Amal B Mathew",
   description:
     "Explore feature film and episodic production experience, paint & prep breakdowns, and compositing projects by Amal B Mathew.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {

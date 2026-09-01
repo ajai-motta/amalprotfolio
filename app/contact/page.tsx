@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Contact | Amal B Mathew - VFX Artist",
   description:
     "Get in touch with Amal B Mathew for visual effects, compositing, paint/prep, and film production collaborations.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

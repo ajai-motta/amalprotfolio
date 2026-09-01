@@ -19,7 +19,10 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://amalbmathew.com"),
+  metadataBase: new URL("https://amal.keralawebs.com"),
+  alternates: {
+    canonical: "https://amal.keralawebs.com",
+  },
   title: "Amal B Mathew | VFX Artist",
   description:
     "Portfolio of Amal B Mathew, a VFX Artist specializing in visual effects, compositing, paint and prep, CGI, and digital production workflows.",
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
     title: "Amal B Mathew | VFX Artist",
     description:
       "Cinematic portfolio of Amal B Mathew featuring compositing, paint & prep, CGI, and selected production experience.",
-    url: "https://amalbmathew.com",
+    url: "https://amal.keralawebs.com",
     siteName: "Amal B Mathew VFX Portfolio",
     images: [
       {
